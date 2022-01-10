@@ -1,0 +1,2 @@
+class CientPromotion < ApplicationRecord
+end
