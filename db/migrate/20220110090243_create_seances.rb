@@ -4,7 +4,7 @@ class CreateSeances < ActiveRecord::Migration[7.0]
       t.has_many :reservation
       t.belongs_to :movie
       t.belongs_to :hall
-      t.float :time
+      t.integer :time
 
       t.timestamps
     end
