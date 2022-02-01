@@ -6,7 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-movies = Movie.create([
-    { title: "Harry Testing", description: "This film is about the Harry T.", duration: 5400},
-    { title: "Lord of Tests", description: "This film is about the Ruby Ring", duration: 10800},
-    { title: "Test on Rails", description: "This film is about kil", duration: 5400}])
+Movie.create([
+               { title: 'Harry Testing', description: 'This film is about the Harry T.', duration: 5400 },
+               { title: 'Lord of Tests', description: 'This film is about the Ruby Ring', duration: 10_800 },
+               { title: 'Test on Rails', description: 'This film is about kil', duration: 5400 }
+             ])
+
+Hall.create([
+              { name: 'Red Hall' },
+              { name: 'Green Hall' },
+              { name: 'Blue Hall' }
+            ])
