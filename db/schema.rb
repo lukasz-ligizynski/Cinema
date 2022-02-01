@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2022_01_10_090935) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cient_promotions", force: :cascade do |t|
-    t.integer "client_id"
-    t.integer "promotion_id"
+    t.bigint "client_id"
+    t.bigint "promotion_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_cient_promotions_on_client_id"
@@ -52,9 +55,9 @@ ActiveRecord::Schema.define(version: 2022_01_10_090935) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer "seance_id"
-    t.integer "ticketdesk_id"
-    t.integer "client_id"
+    t.bigint "seance_id"
+    t.bigint "ticketdesk_id"
+    t.bigint "client_id"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -64,8 +67,8 @@ ActiveRecord::Schema.define(version: 2022_01_10_090935) do
   end
 
   create_table "seances", force: :cascade do |t|
-    t.integer "movie_id"
-    t.integer "hall_id"
+    t.bigint "movie_id"
+    t.bigint "hall_id"
     t.integer "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -80,7 +83,7 @@ ActiveRecord::Schema.define(version: 2022_01_10_090935) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "reservation_id"
+    t.bigint "reservation_id"
     t.string "seat"
     t.string "type"
     t.decimal "price"
