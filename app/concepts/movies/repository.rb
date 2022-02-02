@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
 module Movies
-  class Repository < ::Base::BaseRepository
-    def initialize(adapter: Movie)
-      super(adapter: adapter)
+  class Repository
+    class << self
+      delegate :find_all,
+               to: :new
+    end
+
+    def find_all
+      Movie.order(:id).all
     end
   end
 end
