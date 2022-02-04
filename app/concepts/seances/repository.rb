@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Movies
+module Seances
   class Repository
     class << self
       delegate :find_all,
@@ -8,7 +8,7 @@ module Movies
     end
 
     def find_all
-      Movie.order(:id).all
+      Seance.order(:id).all
     end
   end
 end
