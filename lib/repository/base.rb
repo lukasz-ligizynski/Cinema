@@ -3,7 +3,7 @@
 module Repository
   class Base
     class << self
-      delegate :all,
+      delegate :find_all,
                to: :new
     end
 

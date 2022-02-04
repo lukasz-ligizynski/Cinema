@@ -2,7 +2,8 @@
 
 class MoviesController < ActionController::Base
   def index
-    render json: ::Movies::Repository.find_all
+    movies = Movies::Repository.new.find_all
+    render json: Movies::Representer.new(movies).basic
   end
 
   def movie_params
