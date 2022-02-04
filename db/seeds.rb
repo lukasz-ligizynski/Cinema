@@ -17,3 +17,10 @@ Hall.create([
               { name: 'Green Hall' },
               { name: 'Blue Hall' }
             ])
+
+Seance.create([
+                { hall_id: 1, movie_id: 2, start_time: Time.strptime('07/16/2022 08:00', '%m/%d/%Y %H:%M'),
+                  end_time: Time.strptime('07/16/2022 10:00', '%m/%d/%Y %H:%M') },
+                { hall_id: 4, movie_id: 2, start_time: Time.strptime('06/30/2012 12:00', '%m/%d/%Y %H:%M'),
+                  end_time: Time.strptime('06/30/2012 16:00', '%m/%d/%Y %H:%M') }
+              ])
