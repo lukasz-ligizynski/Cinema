@@ -6,7 +6,7 @@ class HallsController < ActionController::Base
     render json: Halls::Representer.new(halls).basic
   end
 
-  def movie_params
+  def hall_params
     params.require(:hall).permit(:name)
   end
 end
