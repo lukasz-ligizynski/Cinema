@@ -2,7 +2,7 @@
 
 module Reservations
   class Representer
-    attr_reader :movies
+    attr_reader :reservations
 
     def initialize(reservations)
       @reservations = reservations
