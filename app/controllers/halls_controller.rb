@@ -7,6 +7,6 @@ class HallsController < ActionController::Base
   end
 
   def hall_params
-    params.require(:hall).permit(:name)
+    params.require(:hall).permit(:name, :rows, :columns, :seats)
   end
 end

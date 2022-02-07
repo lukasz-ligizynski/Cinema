@@ -12,7 +12,10 @@ module Halls
       halls.map do |hall|
         {
           id: hall.id,
-          name: hall.name
+          name: hall.name,
+          rows: hall.rows,
+          columns: hall.columns,
+          seats: hall.seats
         }
       end
     end
