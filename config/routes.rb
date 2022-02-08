@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/seances', to: 'seances#index'
   get '/tickets', to: 'tickets#index'
   get '/reservations', to: 'reservations#index'
+  get '/create_hall', to: 'halls#new'
 end
