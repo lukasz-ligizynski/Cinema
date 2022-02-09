@@ -7,6 +7,6 @@ class ReservationsController < ActionController::Base
   end
 
   def reservation_params
-    params.require(:movie).permit(:ticketdesk_id, :seance_id, :status, :client_id)
+    params.require(:reservation).permit(:ticketdesk_id, :seance_id, :status, :client_id)
   end
 end
