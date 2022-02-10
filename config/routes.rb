@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/reservations', to: 'reservations#index'
   get '/create_hall', to: 'halls#new'
   get '/ticket_desks', to: 'ticketdesks#index'
+  get '/create_reservation', to: 'reservations#new'
 end
