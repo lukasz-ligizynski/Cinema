@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/movies', to: 'movies#index'
-  get '/halls', to: 'halls#index'
-  get '/seances', to: 'seances#index'
-  get '/tickets', to: 'tickets#index'
-  get '/reservations', to: 'reservations#index'
-  get '/create_hall', to: 'halls#create'
-  get '/ticket_desks', to: 'ticketdesks#index'
-  get '/create_reservation', to: 'reservations#create'
+  resources :movies, only: [:index]
+  resources :halls, only: %i[index create]
+  resources :seances, only: [:index]
+  resources :tickets, only: [:index]
+  resources :reservations, only: %i[index create]
+  resources :ticket_desks, only: [:index]
 end
