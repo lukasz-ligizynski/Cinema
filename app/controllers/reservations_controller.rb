@@ -6,7 +6,7 @@ class ReservationsController < ActionController::Base
     render json: Reservations::Representer.new(reservations).basic
   end
 
-  def new
+  def create
     reservation = Reservations::UseCases::Create.new.call(params: reservation_params)
     render json: reservation, status: :created
   end
