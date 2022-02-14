@@ -6,7 +6,7 @@ class HallsController < ActionController::Base
     render json: Halls::Representer.new(halls).basic
   end
 
-  def new
+  def create
     hall = Halls::UseCases::Create.new.call(params: hall_params)
     render json: hall, status: :created
   end
