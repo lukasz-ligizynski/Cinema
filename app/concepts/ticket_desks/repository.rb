@@ -1,19 +1,14 @@
 # frozen_string_literal: true
 
-module Reservations
+module TicketDesks
   class Repository
     class << self
       delegate :find_all,
-               :create,
                to: :new
     end
 
     def find_all
-      Reservation.order(:id).all
-    end
-
-    def create(params)
-      Reservation.create(params)
+      TicketDesk.order(:id).all
     end
   end
 end
