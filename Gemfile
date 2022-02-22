@@ -42,6 +42,8 @@ gem "bootsnap", require: false
 # Use postgres
 gem "pg"
 
+gem 'simplecov', require: false, group: :test
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -53,6 +55,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'dotenv-rails'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem "rspec-rails", "~> 5.1.0"
 end
 
 group :development do
@@ -71,4 +74,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'simplecov', require: false
 end
