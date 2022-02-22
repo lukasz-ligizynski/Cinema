@@ -42,6 +42,8 @@ gem "bootsnap", require: false
 # Use postgres
 gem "pg"
 
+gem 'simplecov', require: false, group: :test
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -72,4 +74,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'simplecov', require: false
 end

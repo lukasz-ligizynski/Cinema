@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_10_214913) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_02_10_214913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cient_promotions", force: :cascade do |t|
     t.bigint "client_id"
     t.bigint "promotion_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_cient_promotions_on_client_id"
     t.index ["promotion_id"], name: "index_cient_promotions_on_promotion_id"
   end
@@ -30,14 +29,14 @@ ActiveRecord::Schema.define(version: 2022_02_10_214913) do
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "halls", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "seats", default: [], array: true
     t.string "columns", default: [], array: true
     t.string "rows", default: [], array: true
@@ -47,14 +46,14 @@ ActiveRecord::Schema.define(version: 2022_02_10_214913) do
     t.string "description"
     t.string "title"
     t.integer "duration"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "promotions", force: :cascade do |t|
     t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -62,8 +61,8 @@ ActiveRecord::Schema.define(version: 2022_02_10_214913) do
     t.bigint "ticket_desk_id"
     t.bigint "client_id"
     t.string "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_reservations_on_client_id"
     t.index ["seance_id"], name: "index_reservations_on_seance_id"
     t.index ["ticket_desk_id"], name: "index_reservations_on_ticket_desk_id"
@@ -72,18 +71,18 @@ ActiveRecord::Schema.define(version: 2022_02_10_214913) do
   create_table "seances", force: :cascade do |t|
     t.bigint "movie_id"
     t.bigint "hall_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.datetime "start_time", precision: 6
-    t.datetime "end_time", precision: 6
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.index ["hall_id"], name: "index_seances_on_hall_id"
     t.index ["movie_id"], name: "index_seances_on_movie_id"
   end
 
   create_table "ticket_desks", force: :cascade do |t|
     t.boolean "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -91,8 +90,8 @@ ActiveRecord::Schema.define(version: 2022_02_10_214913) do
     t.string "seat"
     t.string "type"
     t.decimal "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["reservation_id"], name: "index_tickets_on_reservation_id"
   end
 
