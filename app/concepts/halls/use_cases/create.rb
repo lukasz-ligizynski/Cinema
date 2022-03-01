@@ -10,9 +10,13 @@ module Halls
       end
 
       def call(params:)
-        seats = Halls::UseCases::CreateSeats.new(params: params).call
-        params[:seats] = seats
-        repository.create(params)
+        if !params.present?
+          nil
+        else
+          seats = Halls::UseCases::CreateSeats.new(params: params).call
+          params[:seats] = seats
+          repository.create(params)
+        end
       end
     end
   end

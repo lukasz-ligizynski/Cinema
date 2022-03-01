@@ -8,7 +8,13 @@ RSpec.describe Halls::UseCases::Create do
   subject(:subject) { described_class.new.call(params: params) }
   context 'when params are correct' do
     it 'Should create Hall with params and created table of seats' do
-      expect{subject}.to change { Hall.count }.by(1)
+      expect { subject }.to change { Hall.count }.by(1)
+    end
+  end
+  context 'when all params are missing' do
+    let(:params) { {} }
+    it 'Should return nil' do
+      expect { subject }.nil?
     end
   end
 end
