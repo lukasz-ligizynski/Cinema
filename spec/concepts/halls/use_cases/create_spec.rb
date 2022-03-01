@@ -17,4 +17,14 @@ RSpec.describe Halls::UseCases::Create do
       expect { subject }.nil?
     end
   end
+  context 'when rows or columns params are missing' do
+    let(:params) { { rows: nil } }
+    it 'Should return nil' do
+      expect { subject }.nil?
+    end
+    let(:params) { { columns: nil } }
+    it 'Should return nil' do
+      expect { subject }.nil?
+    end
+  end
 end

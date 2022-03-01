@@ -12,6 +12,8 @@ module Halls
       def call(params:)
         if !params.present?
           nil
+        elsif !params[:rows].present? || !params[:columns].present?
+          nil
         else
           seats = Halls::UseCases::CreateSeats.new(params: params).call
           params[:seats] = seats
