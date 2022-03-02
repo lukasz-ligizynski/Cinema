@@ -10,10 +10,16 @@ module Halls
       end
 
       def call(params: @params)
-        seats = []
-        params[:rows].map do |row|
-          params[:columns].map do |column|
-            seats += ["#{row},#{column}"]
+        if !params.present?
+          nil
+        elsif !params[:rows].present? || !params[:columns].present?
+          nil
+        else
+          seats = []
+          params[:rows].map do |row|
+            params[:columns].map do |column|
+              seats += ["#{row},#{column}"]
+            end
           end
         end
         seats
