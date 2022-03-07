@@ -11,6 +11,11 @@ class HallsController < ActionController::Base
     render json: hall, status: :created
   end
 
+  def destroy(id)
+    Halls::UseCases::Destroy.new.call(id)
+    render json: { status: 'deleted' }
+  end
+
   def hall_params
     params.require(:hall).permit(:name, :rows, :columns)
   end

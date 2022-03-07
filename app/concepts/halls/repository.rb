@@ -5,6 +5,7 @@ module Halls
     class << self
       delegate :find_all,
                :create,
+               :destroy,
                to: :new
     end
 
@@ -14,6 +15,10 @@ module Halls
 
     def create(params)
       Hall.create(params)
+    end
+
+    def destroy(id)
+      Hall.destroy(id)
     end
   end
 end
