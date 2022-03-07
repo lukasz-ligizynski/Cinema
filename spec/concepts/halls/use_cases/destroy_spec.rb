@@ -5,7 +5,6 @@ require 'rails_helper'
 
 RSpec.describe Halls::UseCases::Destroy do
   FactoryBot.build(:hall)
-  byebug
   subject(:subject) { described_class.new.call(hall.id) }
   context 'when destroy was sucesfull' do
     it 'Should destroy the objct' do
