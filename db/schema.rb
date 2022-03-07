@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_10_214913) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_07_113342) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -88,8 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_10_214913) do
   create_table "tickets", force: :cascade do |t|
     t.bigint "reservation_id"
     t.string "seat"
-    t.string "type"
-    t.decimal "price"
+    t.string "ticket_type"
+    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reservation_id"], name: "index_tickets_on_reservation_id"
