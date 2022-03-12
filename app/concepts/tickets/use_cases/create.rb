@@ -10,7 +10,13 @@ module Tickets
       end
 
       def call(params:)
-        repository.create(params)
+        if !params.present?
+          nil
+        elsif !params.each.present?
+          nil
+        else
+          repository.create(params)
+        end
       end
     end
   end
