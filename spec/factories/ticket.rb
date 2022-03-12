@@ -1,4 +1,6 @@
-# This will guess the ticket class
+# This will guess the ticket class'
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :ticket do
     id { rand(1..1_000) }

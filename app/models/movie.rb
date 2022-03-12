@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Movie < ApplicationRecord
-    has_many :seance
+  has_many :seance
 end
