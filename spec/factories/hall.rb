@@ -1,8 +1,8 @@
 # This will guess the hall class
 FactoryBot.define do
   factory :hall do
-    id { 1 }
-    rows { [1, 2] }
-    columns { [1, 2] }
+    id { rand(1..1_000) }
+    rows { @row = *(1..(rand(2..10))) }
+    columns { @columns = *(1..(rand(2..10))) }
   end
 end
