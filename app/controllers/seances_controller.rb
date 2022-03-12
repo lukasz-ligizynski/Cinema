@@ -6,6 +6,11 @@ class SeancesController < ActionController::Base
     render json: Seances::Representer.new(seances).basic
   end
 
+  def create
+    seance = Seances::UseCases::Create.new.call(params: seance_params)
+    render json: seance, status: :created
+  end
+
   def seance_params
     params.require(:seance).permit(:hall_id, :movie_id, :start_time, :end_time)
   end
