@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This will guess the hall class
 FactoryBot.define do
   factory :hall do

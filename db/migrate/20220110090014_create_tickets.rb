@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTickets < ActiveRecord::Migration[7.0]
   def change
     create_table :tickets do |t|
@@ -5,7 +7,7 @@ class CreateTickets < ActiveRecord::Migration[7.0]
       t.string :seat
       t.string :type
       t.decimal :price
-      
+
       t.timestamps
     end
   end

@@ -5,7 +5,7 @@ require 'rails_helper'
 
 RSpec.describe Tickets::UseCases::Create do
   let(:reservation) { create(:reservation) }
-  let(:params) { { reservation_id: Reservation.last.id , ticket_type: 'Normal 2D', seat: '1,1', price: 36.00 } }
+  let(:params) { { reservation_id: Reservation.last.id, ticket_type: 'Normal 2D', seat: '1,1', price: 36.00 } }
   subject(:subject) { described_class.new.call(params: params) }
   context 'when params are correct' do
     it 'Should create Ticket with params' do

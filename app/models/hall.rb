@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Hall < ApplicationRecord
   validates :columns, presence: true
   validates :rows, presence: true
