@@ -15,6 +15,9 @@ module Tickets
         elsif !params.each.present?
           nil
         else
+          byebug
+          params[:seat] = Tickets::UseCases::FindEmptySeat.new(params: params).call
+          byebug
           repository.create(params)
         end
       end
