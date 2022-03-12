@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_307_113_342) do
+ActiveRecord::Schema[7.0].define(version: 20_220_312_160_438) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -77,6 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 20_220_307_113_342) do
     t.datetime 'updated_at', null: false
     t.datetime 'start_time'
     t.datetime 'end_time'
+    t.json 'seats', default: [], array: true
     t.index ['hall_id'], name: 'index_seances_on_hall_id'
     t.index ['movie_id'], name: 'index_seances_on_movie_id'
   end
