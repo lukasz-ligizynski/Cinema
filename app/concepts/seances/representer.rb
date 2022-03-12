@@ -15,7 +15,8 @@ module Seances
           movie_id: seance.movie_id,
           hall_id: seance.hall_id,
           start_time: seance.start_time,
-          end_time: seance.end_time
+          end_time: seance.end_time,
+          seats: seance.seats
         }
       end
     end

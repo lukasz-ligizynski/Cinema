@@ -4,7 +4,7 @@ require 'spec_helper'
 require 'rails_helper'
 
 RSpec.describe Seances::UseCases::Create do
-  let(:params) { { hall_id: 1, movie_id: 1, start_time: Time.now, end_time: Time.now } }
+  let(:params) { { hall_id: Hall.last.id, movie_id: Movie.last.id, start_time: Time.now, end_time: Time.now } }
   subject(:subject) { described_class.new.call(params: params) }
   context 'when params are correct' do
     it 'Should create Seance with params' do
