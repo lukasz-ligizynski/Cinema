@@ -8,7 +8,7 @@ class SeancesController < ActionController::Base
 
   def create
     seance = Seances::UseCases::Create.new.call(params: seance_params)
-    DeleteSeanceJob.set(wait_until: seance.end_time).perform_later(id: id)
+    DeleteSeanceJob.set(wait_until: seance.end_time).perform_later(id: seance.id)
 
     render json: seance, status: :created
   end

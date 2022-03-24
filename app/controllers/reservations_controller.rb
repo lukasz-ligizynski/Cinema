@@ -8,6 +8,8 @@ class ReservationsController < ActionController::Base
 
   def create
     reservation = Reservations::UseCases::Create.new.call(params: reservation_params)
+    start_time = Seance.find(reservation.id)[:start_time]
+    DeleteReservationJob.set(wait_until: start_time - 15.minutes).perform_later(id: reservation.id)
     render json: reservation, status: :created
   end
 
