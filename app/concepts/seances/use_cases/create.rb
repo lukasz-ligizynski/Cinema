@@ -10,15 +10,11 @@ module Seances
       end
 
       def call(params:)
-        if !params.present?
-          nil
-        elsif !params.each.present?
-          nil
-        else
-          seats = Seances::UseCases::TemporarySeats.new(params: params).call
-          params[:seats] = seats
-          repository.create(params)
-        end
+        return  unless !params.present? || !params.each.present?
+
+        seats = Seances::UseCases::TemporarySeats.new(params: params).call
+        params[:seats] = seats
+        repository.create(params)
       end
     end
   end

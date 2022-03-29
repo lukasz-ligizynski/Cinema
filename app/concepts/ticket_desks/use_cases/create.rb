@@ -10,13 +10,9 @@ module TicketDesks
       end
 
       def call(params:)
-        if !params.present?
-          nil
-        elsif !params.each.present?
-          nil
-        else
-          repository.create(params)
-        end
+        return unless !params.present? || !params.each.present?
+
+        repository.create(params)
       end
     end
   end

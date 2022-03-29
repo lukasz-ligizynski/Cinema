@@ -10,14 +10,10 @@ module Tickets
       end
 
       def call(params:)
-        if !params.present?
-          nil
-        elsif !params.each.present?
-          nil
-        else
+        return  unless !params.present? || !params.each.present?
+
           params[:seat] = Tickets::UseCases::FindEmptySeat.new(params: params).call
           repository.create(params)
-        end
       end
     end
   end
