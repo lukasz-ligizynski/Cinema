@@ -10,7 +10,10 @@ module Reservations
       end
 
       def call(params:)
-        repository.create(params)
+        reservation = repository.create(params)
+        start_time = Seance.find(reservation.id)[:start_time]
+        DeleteReservationJob.set(wait_until: start_time).perform_later(id: reservation.id)
+        reservation
       end
     end
   end
