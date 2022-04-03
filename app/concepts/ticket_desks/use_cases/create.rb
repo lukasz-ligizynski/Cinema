@@ -12,7 +12,11 @@ module TicketDesks
       def call(params:)
         return unless !params.present? || !params.each.present?
 
-        repository.create(params)
+        begin
+          repository.create(params)
+        rescue StandardError => e
+          puts "Rescued: #{e.inspectt}"
+        end
       end
     end
   end

@@ -10,7 +10,11 @@ module Reservations
       end
 
       def call(params:)
-        reservation = repository.create(params)
+        begin
+          reservation = repository.create(params)
+        rescue StandardError => e
+          puts "Rescued: #{e.inspectt}"
+        end
         start_time = Seance.find(reservation.id)[:start_time]
         DeleteReservationJob.set(wait_until: start_time).perform_later(id: reservation.id)
         reservation

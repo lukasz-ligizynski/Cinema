@@ -10,10 +10,14 @@ module Tickets
       end
 
       def call(params:)
-        return  unless !params.present? || !params.each.present?
+        return unless !params.present? || !params.each.present?
 
-          params[:seat] = Tickets::UseCases::FindEmptySeat.new(params: params).call
+        params[:seat] = Tickets::UseCases::FindEmptySeat.new(params: params).call
+        begin
           repository.create(params)
+        rescue StandardError => e
+          puts "Rescued: #{e.inspectt}"
+        end
       end
     end
   end

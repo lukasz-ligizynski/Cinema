@@ -17,7 +17,11 @@ module Halls
         else
           seats = Halls::UseCases::CreateSeats.new(params: params).call
           params[:seats] = seats
+        end
+        begin
           repository.create(params)
+        rescue StandardError => e
+          puts "Rescued: #{e.inspectt}"
         end
       end
     end
