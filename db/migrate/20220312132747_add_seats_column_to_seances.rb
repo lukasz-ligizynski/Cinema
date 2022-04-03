@@ -2,6 +2,6 @@
 
 class AddSeatsColumnToSeances < ActiveRecord::Migration[7.0]
   def change
-    add_column :seances, :seats, :structures, array: true, default: []
+    add_column :seances, :seats, :string, array: true, default: []
   end
 end
