@@ -15,7 +15,9 @@ module Seances
         seats = Seances::UseCases::TemporarySeats.new(params: params).call
         params[:seats] = seats
         begin
-          repository.create(params)
+          seance = repository.create(params)
+          DeleteSeanceJob.set(wait_until: seance.end_time).perform_later(id: seance.id)
+          seance
         rescue StandardError => e
           puts "Rescued: #{e.inspectt}"
         end
