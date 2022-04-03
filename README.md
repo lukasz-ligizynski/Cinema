@@ -1,24 +1,11 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+How to set up the app:
+  1. Clone repository
+  2. set ruby to 3.1.0 version
+  3. Bundle install
+  4. Change file '.env.example' to '.env' and set envioremnt's passwords and usernames
+  5. Make sure postgresql is working, I use postgreSQL 13
+  6. rails db:create
+  7. rails db:migrate
+  8. You can check now if everything is working by "rails s".
+  9. rails db:seed for basic data.
+  10. Have fun with app :D 
