@@ -14,7 +14,11 @@ module Seances
 
         seats = Seances::UseCases::TemporarySeats.new(params: params).call
         params[:seats] = seats
-        repository.create(params)
+        begin
+          repository.create(params)
+        rescue StandardError => e
+          puts "Rescued: #{e.inspectt}"
+        end
       end
     end
   end
