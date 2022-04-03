@@ -2,8 +2,5 @@
 
 class Ticket < ApplicationRecord
   belongs_to :reservation
-  validates :ticket_type, presence: true
-  validates :reservation_id, presence: true
-  validates :seat, presence: true
-  validates :price, presence: true
+  validates :ticket_type, :reservation_id, :seat, :price, presence: true
 end

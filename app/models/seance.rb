@@ -2,8 +2,5 @@
 
 class Seance < ApplicationRecord
   has_many :reservation
-  validates :hall_id, presence: true
-  validates :movie_id, presence: true
-  validates :start_time, presence: true
-  validates :end_time, presence: true
+  validates :hall_id, :movie_id, :start_time, :end_time, presence: true
 end

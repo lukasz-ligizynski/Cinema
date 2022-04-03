@@ -2,7 +2,5 @@
 
 class Movie < ApplicationRecord
   has_many :seance
-  validates :title, presence: true
-  validates :description, presence: true
-  validates :duration, presence: true
+  validates :title, :description, :duration, presence: true
 end

@@ -5,8 +5,5 @@ class Reservation < ApplicationRecord
   belongs_to :ticket_desk
   belongs_to :client
   has_many :ticket
-  validates :status, presence: true
-  validates :client_id, presence: true
-  validates :seance_id, presence: true
-  validates :ticket_desk_id, presence: true
+  validates :status, :client_id, :seance_id, :ticket_desk_id,presence: true
 end
