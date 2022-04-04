@@ -10,8 +10,6 @@ module Movies
       end
 
       def call(params:)
-        return unless !params.present? || !params.each.present?
-
         repository.create(params)
       end
     end

@@ -15,8 +15,8 @@ module Reservations
         rescue StandardError => e
           puts "Rescued: #{e.inspectt}"
         end
-        start_time = Seance.find(reservation.id)[:start_time]
-        DeleteReservationJob.set(wait_until: start_time).perform_later(id: reservation.id)
+        start_time = Seance.find(reservation.seance_id)[:start_time]
+        DeleteReservationJob.perform_at(start_time)
         reservation
       end
     end
