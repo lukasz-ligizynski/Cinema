@@ -10,8 +10,6 @@ module Seances
       end
 
       def call(params:)
-        return  unless !params.present? || !params.each.present?
-
         seats = Seances::UseCases::TemporarySeats.new(params: params).call
         params[:seats] = seats
         begin
@@ -19,7 +17,7 @@ module Seances
           DeleteSeanceJob.set(wait_until: seance.end_time).perform_later(id: seance.id)
           seance
         rescue StandardError => e
-          puts "Rescued: #{e.inspectt}"
+          puts "Rescued: #{e.inspect}"
         end
       end
     end

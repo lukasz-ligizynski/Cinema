@@ -10,8 +10,6 @@ module Tickets
       end
 
       def call(params:)
-        return unless !params.present? || !params.each.present?
-
         check_seat(params: params)
         begin
           repository.create(params)
@@ -19,17 +17,15 @@ module Tickets
           puts "Rescued: #{e.inspectt}"
         end
       end
-    end
 
-    private 
-
-    def check_seat(params:)
-      if params[:seat].empty?
-        params[:seat] = Tickets::UseCases::FindEmptySeat.new(params: params).call
-      elsif Tickets::UseCases::IsSeatEmpty.new(params: params).call
-        'Set is taken, change seat'
-      else
-        params[:seat]
+      def check_seat(params:)
+        if params[:seat].empty?
+          params[:seat] = Tickets::UseCases::FindEmptySeat.new(params: params).call
+        elsif Tickets::UseCases::IsSeatEmpty.new(params: params).call
+          'Set is taken, change seat'
+        else
+          params[:seat]
+        end
       end
     end
   end
