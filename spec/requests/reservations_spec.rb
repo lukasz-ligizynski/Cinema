@@ -18,7 +18,6 @@ RSpec.describe 'Reservations', type: :request do
       } }
       post '/reservations', params: reservation_params.to_json, headers: { "Content-Type": 'application/json' }
       json = JSON.parse(response.body)
-      byebug
       expect(response).to have_http_status(201)
     end
   end
